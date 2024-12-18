@@ -62,7 +62,7 @@ particlesJS("particles-js", {
 });
 
 // Alternar entre textos com efeito de digitação
-const roles = ["Dev Front end", "UI/UX Design"];
+const roles = ["Dev Front End", "UI/UX Design"];
 let currentIndex = 0;
 
 function typeText(text, element, callback) {
