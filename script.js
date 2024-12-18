@@ -61,20 +61,32 @@ particlesJS("particles-js", {
   retina_detect: true,
 });
 
-// Alternar entre textos
+// Alternar entre textos com efeito de digitação
 const roles = ["Dev Front end", "UI/UX Design"];
 let currentIndex = 0;
 
-function updateRoleText() {
-  const roleElement = document.getElementById("role");
-  roleElement.textContent = roles[currentIndex];
-  currentIndex = (currentIndex + 1) % roles.length;
+function typeText(text, element, callback) {
+  let i = 0;
+  element.textContent = ""; // Limpar o conteúdo anterior
+  const typingInterval = setInterval(() => {
+    element.textContent += text[i];
+    i++;
+    if (i === text.length) {
+      clearInterval(typingInterval);
+      setTimeout(callback, 1000); // Aguardar 1 segundo antes de iniciar a troca
+    }
+  }, 100); // Tempo entre cada caractere
 }
 
-// Alterne o texto a cada 2 segundos
-setInterval(updateRoleText, 2000);
+function updateRoleText() {
+  const roleElement = document.getElementById("role");
+  typeText(roles[currentIndex], roleElement, () => {
+    currentIndex = (currentIndex + 1) % roles.length;
+    updateRoleText();
+  });
+}
 
-// Inicialize com o primeiro texto
+// Iniciar a animação com o primeiro texto
 updateRoleText();
 
 // Estatísticas de Partículas
