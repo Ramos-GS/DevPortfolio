@@ -28,8 +28,6 @@ canvas {
   transform: translate(-50%, -50%);
   text-align: center;
   color: #ffffff;
-  font-family: 'Arial', sans-serif;
-  font-size: 35px;
 }
 
 #text-container h1 {
@@ -40,16 +38,19 @@ canvas {
 #text-container p {
   font-size: 1.5em;
   margin: 0;
-  animation: fadeInOut 4s infinite;
+  color: #13e8e9; /* Azul Claro */
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
 }
 
-/* ---- Animação ---- */
-@keyframes fadeInOut {
-  0%, 100% {
-    opacity: 0;
+/* ---- Animações ---- */
+@keyframes typing {
+  from {
+    width: 0;
   }
-  50% {
-    opacity: 1;
+  to {
+    width: 100%;
   }
 }
 
